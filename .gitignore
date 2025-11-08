@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+env/
+.env
+
+#Database
+*.db 
+*.sqlite
+
+#IDE
+.vscode/
+
+#logs
+*.log 
+
+#Data files
+data/*csv
+data/*.json
+!data/.gitkeep
