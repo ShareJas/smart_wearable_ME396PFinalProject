@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+
 """
 Live Heart Metrics Monitor - Dash App
 Created on Tue Dec 2 2025
-@author: jgmor (fixed)
+@author: jgmor
 """
 
 from HR_Processing import HRProcessor
