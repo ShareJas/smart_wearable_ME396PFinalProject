@@ -8,6 +8,9 @@ Created on Wed Nov 26 18:33:26 2025
 # Imports
 from HR_Processing import HRProcessor
 from HRV_Processing import HRVProcessor
+import dash
+from dash import html
+
 # from activity_classifier import ActivityClassifier
 from User_Profile import UserProfile
 from Training_Zone import zones_karvonen
@@ -89,4 +92,5 @@ while True:
     # 6. Wait for the next reading
     step += 1
     time.sleep(1)  # simulate 1 Hz update rate
+
 

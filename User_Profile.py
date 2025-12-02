@@ -39,13 +39,13 @@ class UserProfile:
         )
 
 
-age = input("Age? ")
-feet = input("Feet: ")
-inches = input("Inches: ")
-sex = input("Sex? M or F: ")
-weight = input("Weight? ")
+# age = input("Age? ")
+# feet = input("Feet: ")
+# inches = input("Inches: ")
+# sex = input("Sex? M or F: ")
+# weight = input("Weight? ")
 
-user = UserProfile(age, feet, inches, sex, weight)
+# user = UserProfile(age, feet, inches, sex, weight)
 
-print(user)
+# print(user)
 
