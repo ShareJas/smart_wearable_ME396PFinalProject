@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS readings (
     valid               INTEGER,
     hr_bpm              INTEGER,
     spo2                INTEGER,
-    rmssd               REAL,
+    rmssd               REAL
     confidence          INTEGER,
     perfusion_index_x10 INTEGER,
     mean_rr_ms          INTEGER,
