@@ -14,7 +14,7 @@ from datetime import datetime
 
 #from local
 from constants import DEVICE_NAME, PLAYBACK_SPEED, WINDOW_SECONDS
-from gui import WatchGUI
+from watch.gui import WatchGUI
 from sensor_simulator import SensorSimulator
 from signal_processor import compute_metrics
 
