@@ -43,16 +43,17 @@ class HRVProcessor:
         else:
             return None
 
-def get_rmssd(self):
-        ## Computes RMSSD (Root Mean Square of Successive Differences)
-        if len(self.rr_intervals) < 2:
-            return None
-
-        diffs = []
-        for i in range(1, len(self.rr_intervals)):
-            diff = self.rr_intervals[i] - self.rr_intervals[i - 1]
-            diffs.append(diff ** 2)
-
-        mean_square = sum(diffs) / len(diffs)
-        rmssd = math.sqrt(mean_square)
-        return rmssd
+    def get_rmssd(self):
+            ## Computes RMSSD (Root Mean Square of Successive Differences)
+            if len(self.rr_intervals) < 2:
+                return None
+    
+            diffs = []
+            for i in range(1, len(self.rr_intervals)):
+                diff = self.rr_intervals[i] - self.rr_intervals[i - 1]
+                diffs.append(diff ** 2)
+    
+            mean_square = sum(diffs) / len(diffs)
+            rmssd = math.sqrt(mean_square)
+    
+            return rmssd
