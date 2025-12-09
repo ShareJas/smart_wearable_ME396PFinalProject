@@ -1,5 +1,5 @@
 # test_replay.py
-# Ultra-simple CSV replay for testing: streams test_data.csv in real-time chunks
+# CSV replay for testing: streams test_data.csv in real-time chunks
 # No BLE simulation, no packet reconstruction needed
 
 import asyncio
@@ -12,14 +12,10 @@ CONNECTED_FLAG = "ble_connected.txt"
 START_FLAG = "start.txt"
 STOP_FLAG = "stop.txt"
 SAMPLE_RATE = 200
-CHUNK_SIZE = 200  # Save every ~1 second of data (200 samples at 200Hz)
+CHUNK_SIZE = 200
 
 async def replay_csv(csv_path="test_data.csv"):
-    # Signal that we're "connected"
     open(CONNECTED_FLAG, "w").close()
-
-    # Clear any old data
-    if os.path.exists(CSV_FILE):os.remove(CSV_FILE)
 
     print(f"[REPLAY] Loading {csv_path}...")
     df = pd.read_csv(csv_path)
@@ -36,7 +32,6 @@ async def replay_csv(csv_path="test_data.csv"):
     saved = 0
 
     for i in range(0, total_samples, CHUNK_SIZE):
-        # Check for manual stop
         if os.path.exists(STOP_FLAG):
             elapsed = time.time() - start_time
             if elapsed >= 30:  # Respect minimum duration like real system
@@ -45,7 +40,6 @@ async def replay_csv(csv_path="test_data.csv"):
                 break
             else:
                 os.remove(STOP_FLAG)
-
         chunk = df.iloc[i:i + CHUNK_SIZE]
         mode = 'a' if saved > 0 else 'w'
         chunk.to_csv(CSV_FILE, mode=mode, header=(mode == 'w'), index=False)
@@ -55,7 +49,6 @@ async def replay_csv(csv_path="test_data.csv"):
         # Simulate real-time playback
         await asyncio.sleep(CHUNK_SIZE / SAMPLE_RATE)
 
-    # Final chunk if any
     if saved < total_samples:
         final_chunk = df.iloc[saved:]
         final_chunk.to_csv(CSV_FILE, mode='a', header=False, index=False)

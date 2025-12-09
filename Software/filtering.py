@@ -11,7 +11,7 @@ import pandas as pd
 # TUNABLE CONSTANTS
 # ================================================================
 SAMPLE_RATE = 200
-BATCH_SIZE = 40                      # Your current chunk size (40 samples per chunk)
+BATCH_SIZE = 40                      
 
 TRIM_START_SECONDS = 1.0             # Remove startup artifact
 TRIM_END_SECONDS = 2.0               # Remove noisy end
@@ -278,4 +278,4 @@ def process_ppg_file(filename: str):
 # ================================================================
 if __name__ == "__main__":
     PRODUCE_GRAPHS = True
-    process_ppg_file('ppg_data_200Hz_20251208_062618.csv')  # <-- Replace with your filename
+    process_ppg_file('')
